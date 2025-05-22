@@ -1,0 +1,48 @@
+{
+  "name": "Prestamos",
+  "version": "1.0.4",
+  "description": "Gestion y prestamos de equipos",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron main.js",
+    "build": "electron-builder"
+  },
+  "files": [
+    "dist/**/*",
+    "icons/**/*"
+  ],
+  "build": {
+    "appId": "Prestamos-Inventario",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "./icons/icon.ico"
+    }
+  },
+  "nsis": {
+    "oneClick": false,
+    "installerIcon": "./icons/icon.ico",
+    "uinstallerIcon": "./icons/icon.ico",
+    "uinstallDisplayName": "Prestamos-uninstaller",
+    "license": "license.md",
+    "allowToInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Prestamos e inventario"
+  },
+  "keywords": [],
+  "author": "Dev Jeiler",
+  "license": "ISC",
+  "dependencies": {
+    "charts.css": "^1.1.0",
+    "electron-updater": "^6.1.8"
+  },
+  "devDependencies": {
+    "electron": "^27.1.0",
+    "electron-builder": "^24.6.4",
+    "electron-reload": "^2.0.0-alpha.1",
+    "nodemon": "^3.0.1"
+  }
+}

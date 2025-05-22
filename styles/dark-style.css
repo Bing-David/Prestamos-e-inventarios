@@ -1,0 +1,102 @@
+*{
+    transition:0.3s;
+}
+
+  
+  .dark-cuerpo {
+    background-color: #0d1117;
+  }
+  
+  
+  .dark-tab-button{
+    background-color: #f5f5fa;
+  }
+
+.dark-tab-button.active{
+    color: #0d1117;
+    background-color: #5fad33;
+    box-shadow: 3px 3px 0px #f5f5fa;
+}
+
+.dark-filtro input{
+  color: #1a1a1a;
+}
+.dark-filtro:hover{
+  box-shadow: 4px 4px 0px #f5f5fa;
+}
+
+.dark-t-title{
+    color: #f5f5fa;
+}
+
+
+.dark-form-container{
+    box-shadow:5px 5px 0px #f5f5fa;
+}
+
+
+.dark-form-container, .dark-form-container h3,.dark-form-container label,.dark-form-container button{
+    background-color: #0d1117;
+    color: #f5f5fa;
+}
+
+.dark-data-table td,.dark-data-table th{
+    color: f5f5fa;
+}
+
+.dark-modal-content{
+    background-color: #0d1117;
+
+}
+
+
+.dark-modal-content tr{
+    color: #f32f2f;
+}
+.dark-p-nota-clave{
+  color: #f5f5fa;
+}
+
+
+.dark-close{
+    color: #5fad33;
+}
+
+.dark-modal-content div ul{
+    background-color:#0d1117;
+    box-shadow:5px 5px 0px #f5f5fa;
+}
+
+.dark-modal-content strong{
+    color: #5fad33;
+
+}
+
+.dark-almace, span {
+    color: whitesmoke;
+}
+
+.dark-prestar{
+  box-shadow: 4px 2px 1px #f5f5fa;
+}
+
+.dark-edit-btn,.dark-delete-btn,.dark-return-btn{
+  color: #0d1117;
+}
+
+.dark-edit-title,.dark-edit-name,.dark-edit-CC,.dark-edit-EQUIPO{
+  color: #f5f5fa;
+}
+
+.dark-modal-confirmacion p{
+  color: #f5f5fa;
+}
+
+.dark-notificacion{
+  color: #5fad33;
+  border: #5fad33 2px solid;
+}
+
+#counter{
+  box-shadow: #f5f5fa 1vw 1vw 0px;
+}

@@ -1,0 +1,3 @@
+Node.js
+Electron
+npm install | PARA INSTALAR TODAS las dependencias.

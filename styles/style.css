@@ -1,0 +1,1394 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@0,700;0,800;0,1000;1,600;1,1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+::selection {
+  background-color: #4ea524; 
+  color: white; 
+}
+
+::-webkit-scrollbar {
+  width:15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color:#fff
+,}
+
+::-webkit-scrollbar-thumb {
+  background-color:#5fad33;
+  border-radius: 1vw;
+  cursor: pointer;
+}
+
+.scrollable-section {
+  overflow-x: auto; 
+}
+
+
+/*General*/
+*{
+  color: #1a1a1a;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', sans-serif;
+  font-family: 'Kanit', sans-serif;
+  letter-spacing: 0.1px;
+  -webkit-app-region:drag;
+}
+body{
+  background-color: #f0ebeb;
+  margin: 0;
+  padding: 0;
+  -webkit-app-region:no-drag;
+  overflow-x: hidden;
+}
+  
+
+
+button{
+  border-radius: 0.6em;
+  border: none;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+
+.menu-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: right;
+}
+
+#minimizeBtn,#closeBtn{
+  width: 20px;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+  position: relative;
+  padding: 0.5vw;
+}
+
+
+.title svg{
+  width: 1.5rem;
+  padding-right: 1rem;
+  fill: #5fad33;
+}
+
+
+
+.tabs {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.tab-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #e2dfdf;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-app-region:no-drag;
+  user-select: none;
+  margin: 0.2vw;
+  font-weight: 600;
+  }
+
+.tab-button.active {
+  box-shadow: 4px 2px 1px #0d1117;
+  background-color: #5fad33;
+}
+
+
+.tab-content {
+  display: none;
+}
+
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*General*/
+
+/* Tablas */
+#prestados-table td,
+#entregados-table td,
+#prestados-table th,
+#historial-table th,
+#entregados-table th,
+#personas-table th,
+#eventos-table th {
+  -webkit-app-region: no-drag;
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  -webkit-app-region: no-drag;
+}
+
+.data-table td,
+.data-table th {
+  border-bottom: 1px solid #6ac75348;
+  text-align: left;
+  animation-name: fade-down;
+  animation-duration: 0.4s;
+  -webkit-app-region: no-drag;
+  padding: 1.2vw;
+  text-overflow: ellipsis;
+  /* max-width: 300px;  */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+
+.expanded-text {
+  white-space: normal; 
+}
+
+
+/*--------------------------------------------------*/
+
+.search-container {
+  margin-bottom: 20px;
+  -webkit-app-region:no-drag;
+  padding: 10px;
+}
+
+.search-container input[type="text"] {
+  padding: 8px;
+  width: 100%;
+  -webkit-app-region:no-drag;
+
+}
+
+form {
+  margin-bottom: 20px;
+  -webkit-app-region:no-drag;
+ 
+}
+
+form h3 {
+  margin-bottom: 10px;
+}
+
+
+
+form label {
+  display: inline-block;
+  width: 100px;
+  
+}
+
+form input[type="text"] {
+  padding: 8px;
+  -webkit-app-region:no-drag;
+
+}
+
+form button {
+  padding: 8px 20px;
+  -webkit-app-region:no-drag;
+}
+
+
+
+.edit-btn{
+  margin: 10px;
+  border-color: #ffa041;
+  border: none;
+  background-color: #ffa041;
+  cursor: pointer;
+  padding: 10px;
+  -webkit-app-region:no-drag;
+
+}
+
+.delete-btn,#borrarHistorial,#borrarEntregados{
+  margin: 5px;
+  border-color: #fa4343;
+  border: none;
+  background-color: #fa4343;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: 700;
+  -webkit-app-region:no-drag;
+
+}
+
+#borrarHistorial:hover,#borrarEntregados:hover{
+  cursor: not-allowed;
+  transition: 0.1s;
+  transform: scale(1.05);
+  -webkit-app-region:no-drag;
+
+}
+
+.delete-btn:hover,.edit-btn:hover,#eventos-table button:hover,#personas button:hover{
+  transition: 0.1s;
+  transform: scale(1.04);
+  -webkit-app-region:no-drag;
+}
+
+.return-btn:hover{
+  transform: scale(1.1);
+  transition: 0.01s;
+  color: #f1f1f1;
+}
+
+.return-btn,#eventos-table button, #personas-table button{
+  background-color: #5fad33;
+  margin: 10px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+
+}
+
+
+#eventos h2 span,#personas h2 span{
+  color: #4ea524;
+  font-weight: 800;
+}
+
+/*Tablas*/
+
+
+/*Notificaciones*/
+
+.notificacion{
+  z-index: 10;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: #0d1117;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  letter-spacing: 0.2vw;
+  border-right: #5fad33 10px solid;
+  user-select: none;
+}
+
+.notificacion.visible {
+  opacity: 1;
+  opacity: 0;
+  animation-name: fade-down;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/*Notificaciones*/
+
+
+/*Export y consultas*/
+
+#import-file-input::-webkit-file-upload-button{
+  background-color:#ffa041;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+}
+
+#import-file-input{
+  width:90px ;
+  background-color: #5fad33;
+  color: #000000;
+  border-radius: 5px;
+  -webkit-app-region:no-drag;
+}
+
+#export-btn-JSON-DB{
+  padding: 10px;
+  border: none;
+  background-color: #ffa041;
+  margin: 5px;
+  color: #0d1117;
+
+}
+
+#export-btn,#export-btn-historial,#consultar-btn,.filtro{
+  margin: 0 auto;
+  background-color: #5fad33;
+  color:#0d1117;
+  margin: 10px;
+  border: none;
+  padding: 9px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  -webkit-app-region:no-drag;
+  
+}
+#consultar-btn{
+  cursor:help;
+}
+
+#export-btn:hover,#export-btn-historial:hover,#export-btn-JSON-DB:hover,#consultar-btn:hover,#import-file-input:hover{
+  transition: 0.2s;
+  color: whitesmoke;
+  -webkit-app-region:no-drag;
+}
+
+#exportarPDFBtn{
+  text-align: center;
+  width: 50px;
+  padding: 0.6vw;
+  box-shadow: none;
+  background-color: transparent;
+  margin-left: 0.5vw;
+}
+
+
+#export-btn:hover,#export-btn-historial:hover,#consultar-btn:hover,#export-btn-JSON-DB:hover,#import-file-input:hover{
+  transform: scale(1.05);
+}
+
+/*Export y consultas*/
+
+
+
+
+.prestar{
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  -webkit-app-region:no-drag;
+
+}
+
+
+
+#prestados h2, #entregados h2, #historial h2,#eventos h2,#personas h2{
+  margin-top: 0px;
+  font-size: 40px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-left: 1vw;
+}
+
+
+/*Buscador*/
+
+#search-input,#search-input2,#search-input3,#search-input4,#search-input5,#search-input6,#search-input7{
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  z-index: 1;
+  background: #f5f5fa;
+  font-size: 17px;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.13);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.151);
+  transition: all 0.3s;
+  overflow: hidden;
+   outline: none;
+   color:#000000;
+  -webkit-app-region:no-drag;
+
+ }
+ 
+
+
+ #search-input:hover::before {
+  width: 100%;
+ }
+
+
+/*buscador*/
+/*-----------------------------------------------------------------------------------*/
+/* -------------------ventan flotante From*/
+
+#fondo{
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: none;
+  background: rgba(35, 35, 35, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
+  -webkit-app-region:drag;
+}
+
+.form-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 420px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #0d1117;
+  background-color: #5fad33;
+  box-shadow: #0d1117 0.5vw 0.5vw 0vw;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.form-container h5 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container input[type="text"] {
+  width: 100%;
+  border-radius: 7px;
+  border: none;
+  padding: 10px;
+  font-weight: 400;
+  background: #f5f5fa;
+  box-sizing: border-box;
+}
+
+.accion-prestamo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-container button {
+  color: #0d1117;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid;
+  transition: transform 0.3s ease-in-out;
+  margin: 0.5vw;
+}
+
+#equipo{
+  width: 100%;
+  padding: 7px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+}
+#equipo:hover{
+  font-weight: 600;
+}
+
+.form-container button:hover {
+  transform: scale(1.05);
+}
+/* -------------------ventan flotante From*/
+/*-----------------------------------------------------------------------------------*/
+
+
+#cancelFormBtn{
+  color: #f32f2f;
+  width: 50%;
+}
+
+
+
+.prestar{
+  margin-left: 0.5vw;
+  background: #5fad33;
+  -webkit-app-region:no-drag;
+  align-items: center;
+  border: 0;
+  box-shadow: 4px 2px 1px #0d1117;
+  box-sizing: border-box;
+  color: #0d1117;
+  cursor: pointer;
+  font-size: 1rem;
+  justify-content: center;
+  line-height: 1.5rem;
+  padding: 15px;
+  position: relative;
+  transition: .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20vw;
+
+}
+
+.prestar:hover{
+  transform: scale(1.02);
+  transition: 0.1s;
+  color: whitesmoke;
+
+}
+
+.prestar:hover{
+  transition: 0.1s;
+  -webkit-app-region:no-drag;
+
+}
+
+/* ventan flotante From*/
+
+
+/*moda-confirmacion*/
+
+.modal-confirmacion {
+  animation-name: fade-down;
+  animation-duration: 0.2s;
+  z-index: 99999;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.4px);
+  -webkit-backdrop-filter: blur(9.4px);
+  overflow:hidden;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+}
+
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+.modal-buttons button {
+  -webkit-app-region:no-drag;
+  margin: 0 10px;
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: #5fad33;
+  width: 30%;
+  transition: 0.2s;
+  z-index: 99999;
+}
+
+.modal-buttons button:hover {
+  color: #f5f5fa;
+  transform: scale(1.05);
+}
+
+/*moda-confirmacion*/
+
+
+
+/* ventan  modal flotante*/
+
+
+#editModal input{
+  width: 100%;
+  border-radius: 1vw;
+  border-color: #5fad33;
+  border-radius: 0.5vw;
+
+}
+
+.modal {
+  animation-name: fade-down;
+  animation-duration: 0.2s;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-app-region:no-drag;
+  scroll-behavior: none;
+  background: rgba(35, 35, 35, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
+  -webkit-app-region:no-drag;
+}
+
+.modal-content {
+  -webkit-app-region:no-drag;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 1.1vw;
+  transition: 0.03s;
+  border: none;
+}
+
+.modal-content div {
+  -webkit-app-region:no-drag;
+  margin-bottom: 10px;
+  color: rgb(99, 93, 93);
+  letter-spacing: 1px;
+
+}
+
+.modal-content div ul{
+  -webkit-app-region:no-drag;
+  background-color:#5fad33; 
+  padding: 3vw;
+  border-radius: 0.9vw;
+  box-shadow: #0d1117 5px 10px 0px;
+  animation-name: fade-down;
+  animation-duration: 0.2s;
+  -webkit-app-region:no-drag;
+
+}
+
+.modal-content li{
+  color: whitesmoke;
+}
+
+
+.close,.close2 {
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+  float: right;
+}
+
+.close, .close,.close2, .close2{
+  color: #5fad33;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+
+#modal_info{
+  animation-name: fade-down;
+  animation-duration: 0.2s;
+  -webkit-app-region:no-drag;
+}
+
+#modal_info span{
+  color: #6ac753;
+  -webkit-app-region:no-drag;
+
+}
+
+
+
+.edit-title,.edit-name,.edit-CC,.edit-EQUIPO{
+  width: 100vw;
+}
+
+.t-title{
+  width: 100%;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+
+#editModal button{
+margin: 0.5;
+justify-content: center;
+background-color: #5fad33;
+color: #0d1117;
+}
+
+
+
+/*Modal ventan flotante*/
+
+
+/* Estilos para el footer */
+.footer{
+  margin-top: 25%;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  color:#5fad33;
+  padding-bottom: 10px;
+  font-size: 10PX;
+  text-align: center;
+}
+
+.footer a{
+  -webkit-app-region:no-drag;
+  color: #5fad33;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 20px;
+  text-transform: uppercase;
+  margin-left: 3.1%;
+}
+
+footer a:hover{
+  color: #4ea524;
+}
+/* Estilos para el footer */
+
+
+
+
+/*------------------loads-carga estilos*/
+
+.volver,.volver-h, .volver-eventos, .volver-personas {
+  position: fixed;
+  bottom: 10px;
+  left: 41%; /* Ajustado para que esté más a la izquierda */
+  background-color: #5fad33;
+  color: #0d1117; 
+  border-radius: 20px;
+  z-index: 1;
+  padding: 8px 16px;
+  cursor: pointer; 
+  letter-spacing: 0.2vw;
+  transition: opacity 0.1s ease; 
+  /* opacity: 0; */
+}
+
+.cargar,.cargar-h,.cargar-p, .segir-eventos, .segir-personas {
+  position: fixed;
+  bottom: 10px;
+  right: 41%; /* Ajustado para que esté más a la derecha */
+  border-radius: 20px; 
+  background-color: #5fad33;
+  color: #0d1117; 
+  padding: 8px 16px;
+  cursor: pointer; 
+  letter-spacing: 0.2vw;
+  z-index: 1;
+  transition: opacity 0.1s ease;
+  /* opacity: 0; */
+}
+
+
+.cargar:hover,.cargar-h:hover,.cargar-p:hover,.cargar-modal:hover,.volver-h:hover,.volver:hover, .segir-eventos:hover, .segir-personas:hover {
+  background-color: #60af31; 
+  transition: 0.1s;
+}
+
+/* Estilos cuando se presiona el botón */
+.cargar:active,.cargar-h:active,.cargar-p:active,.cargar-modal:active,.volver-h:active,.volver:active, .segir-eventos:active, .segir-personas:active {
+  background-color: #5fad33; 
+}
+
+/* .show-cargar {
+  opacity: 1;
+} */
+
+
+
+
+.hidden-row {
+  opacity: 0;
+  transition: opacity 0.1s ease; 
+  pointer-events: none;
+}
+.hidden-row.visible {
+  opacity: 1; 
+}
+
+.cargar-modal, .cargar-modal-P {
+  display: block;
+  position: relative;
+  margin: 20px auto;
+  padding: 8px 16px;
+  background-color: #5fad33;
+  color: #0d1117;
+  border-radius: 20px;
+  cursor: pointer;
+  letter-spacing: 0.2vw;
+  z-index: 9999;
+  bottom: 25%; 
+  -webkit-app-region:no-drag;
+}
+
+.cargar-modal:hover, .cargar-modal-P:hover {
+  background-color: #4ea524;
+}
+
+.cargar-modal:active, .cargar-modal-P:hover {
+  background-color: #5fad33;
+}
+
+/*loads-carga estilos*/
+
+
+
+
+.toggle-mode-btn:hover {
+  transition: 0.2s;
+}
+
+
+.toggle-mode-btn{
+  border-radius: 0.5vw;
+  background-color: transparent;
+}
+
+.toggle-mode-btn img{
+  width: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  -webkit-app-region:no-drag;
+  user-select: none;
+}
+
+#close-btn {
+  display: block;
+  margin: 0 auto;
+  -webkit-app-region:no-drag;
+
+}
+
+/*-------------------------------------------------------------------*/
+/*FILTROS DE DATOS*/
+.filtro{
+  font:  sans-serif;
+  display: inline-block;
+  text-align: center;
+  -webkit-app-region:no-drag;
+}
+
+
+.filtro button{
+  border-radius: 0.6vw;
+  border:none;
+  margin-left: 1vw;
+  -webkit-app-region:no-drag;
+  cursor: pointer;
+}
+
+.filtro{
+  border-radius: 0.6vw;
+}
+
+.filtro:hover{
+  box-shadow: 4px 4px 0px #0d1117;
+}
+
+.filtro input{
+  border-radius: 5px;
+  border:none;
+  -webkit-app-region:no-drag;
+  width: 5rem;
+}
+
+#hora{
+  letter-spacing: 6px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 900;
+  color: #5fad33;
+}
+
+
+.print-element {
+  display: table-row;
+}
+/*FILTROS DE DATOS*/
+/*----------------------------------------------------------------------*/
+
+/* TOOLTIP - SUGERENCIAS INTELIGENTES */
+
+.suggestions-container{
+  display: inline-block;
+  padding-top: 1rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.suggestions-container button{
+  width: 10rem;
+  margin-top: 0.2vw;
+}
+
+
+.suggestion:hover {
+  background-color: #5fad33;
+  color: #f1f1f1;;
+  border-color: #f1f1f1;
+}
+.modal-content{
+  overflow: hidden;
+}
+
+#placa, #nombre {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  -webkit-app-region:no-drag;
+}
+
+#placas-sugeridas, #nombres-sugeridos {
+  max-height: 100px;
+  overflow-y: auto;
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  -webkit-app-region:no-drag;
+
+}
+/* TOOLTIP - SUGERENCIAS INTELIGENTES */
+
+
+/*-------------------------------------------------------------------*/
+/*SCROLL TOP PAGINA*/
+#scrollToTopBtn {
+  -webkit-app-region:no-drag;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #5fad33;
+  color: #0d1117;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#scrollToTopBtn svg{
+  width: 10px;
+  -webkit-app-region:no-drag;
+}
+#scrollToTopBtn:hover {
+  background-color: #4ea524;
+}
+/*SCROLL TOP PAGINA*/
+/*-------------------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------------------*/
+/*MODAL DE EXLS*/
+
+#modal-confirmacion-xls {
+  animation-name: fade-down;
+  animation-duration: 0.4s;
+  text-align: center;
+}
+
+#modal-confirmacion-xls input,#password-borrar{
+  background-color: #5fad33;
+  color: #000000;
+  width: 200px;
+  padding: 1vw;
+  border: none;
+  border-radius: 0.5vw;
+  -webkit-app-region:no-drag;
+  cursor: pointer;
+}
+
+#modal-confirmacion-xls button,#confirmar-borrar{
+  padding: 1vw;
+  color: #0d1117;
+  background-color: #5fad33;
+  -webkit-app-region:no-drag;
+}
+
+#export-btn-historial-reporte,#exportar-reporte-pdf{
+  padding: 0.5vw;
+  background-color: #5fad33;
+  -webkit-app-region:no-drag;
+}
+
+
+
+#modal-confirmacion-xls h2{
+  text-transform: uppercase;
+  font-size: 1.5vw;
+  color:#5fad33;
+}
+
+#modal-confirmacion-xls #password-exportacion,#password-borrar{
+  margin-top: 10px;
+  color: #0d1117;
+  width: 100px;
+  -webkit-app-region:no-drag;
+}
+
+/*MODAL DE EXLS*/
+
+/*----------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------*/
+/* reporte */
+
+#reporte {
+  padding-top: 2%;
+  text-align: center;
+  margin: 0 auto; /* Centrar el contenido horizontalmente */
+  width: 80%; /* Establecer el ancho del contenedor */
+}
+
+#reporte span,#MES span, #reporte label{
+  font-weight: 800;
+  letter-spacing: 0.3vw;
+  color: #5fad33;
+}
+
+#reporte h2 {
+  color: #5fad33;
+  letter-spacing: 0.5vw;
+  text-transform: uppercase;
+}
+
+
+#reporte, #total, #prestamos-mes,#total-value,#prestamos-mes-value,#MES{
+  color: #5fad33;
+  letter-spacing: 0.3vw;
+}
+
+.grafico-total {
+  margin-top: 20px; /* Espacio entre la tabla y el gráfico */
+}
+
+#grafico-historico {
+  max-width: 800px; /* Establecer un ancho máximo para el gráfico */
+  margin: 0 auto; /* Centrar el gráfico horizontalmente */
+  max-height: 300px;
+  -webkit-app-region:no-drag;
+}
+
+#capturar-imagen{
+  width: 300px;
+  margin-top: 20px;
+  border: none;
+  background-color: #5fad33;
+  color: #0d1117;
+  padding: 0.5vw;
+  cursor: pointer;
+  -webkit-app-region:no-drag;
+}
+
+#capturar-imagen:hover,#export-btn-historial-reporte:hover,#exportar-reporte-pdf:hover{
+  color: #f5f5fa;
+}
+
+
+.selector-periodo{
+  padding-top: 10px;
+}
+.configuracion-grafico{
+  padding-top: 10px;
+}
+
+.selector-periodo label{ 
+  letter-spacing: 5px;
+  color: #5fad33;
+}
+
+.selector-periodo select,.configuracion-grafico select{
+  -webkit-app-region:no-drag;
+  border-radius: 0.3rem;
+  color: rgb(0, 0, 0);
+  background-color: #5fad33;
+  border: none;
+  letter-spacing: 0.2vw;
+  text-align: center;
+}
+.selector-periodo select:hover{
+  cursor: pointer;
+}
+
+
+.selector-periodo ::-webkit-scrollbar-track {
+  background-color:#5fad33
+}
+
+.selector-periodo ::-webkit-scrollbar-thumb {
+  background-color:#f0ebeb;
+  cursor: pointer;
+}
+
+
+
+/* reporte */
+/*------------------------------------------------------*/
+
+
+/*--------------------------------------------------*/
+/*responsive*/
+
+@media screen and (max-width: 1200px) {
+  td{
+    font-size: 1.2vw;
+    overflow-x: hidden;
+  }
+
+
+
+  .menu-container{
+    width: 98vw;
+
+  }
+}
+
+
+@media screen and (max-width: 1030px) {
+
+  td{
+    font-size: 1.3vw;
+    overflow-x: hidden;
+  }
+
+  .tab-button{
+    margin: 1vw;
+    width: 80vw;
+  }
+
+  .menu-container{
+    width: 100vw;
+
+  }
+
+}
+
+@media screen and (max-width: 1030px) {
+
+
+  .form-container button {
+    width: 35vw;
+  }
+  
+  .menu-container{
+    width: 93vw;
+  }
+
+  .prestar{
+    width: 30vw;
+  }
+
+  td{
+    font-size: 1.3vw;
+  }
+
+
+  .return-btn,.delete-btn,.edit-btn{
+    font-size: 1vw;
+  }
+
+}
+
+@media screen and (max-width: 730px) {
+
+
+  .tab-button{
+    margin: 1vw;
+    width: 76vw;
+  }
+
+  tbody td{
+    font-size: 2vw;
+    width: 200vw;
+  }
+
+}
+/*responsive*/
+/*--------------------------------------------------*/
+
+
+
+/*Modal-clave secreta importar exportar*/
+/*----------------------------------------------------*/
+#modal-clave-secreta h2,#modal-seguridad h2{
+ color: #4ea524;
+}
+
+#modal-clave-secreta p{
+  letter-spacing: 0.3vw;
+  -webkit-app-region:no-drag;
+}
+#clave-secreta-display{
+  color: #f32f2f;
+  font-weight: 800;
+}
+
+#modal-clave-secreta button,#btn-importar{
+  color: #0d1117;
+  background-color: #4ea524;
+  border-radius: 10px;
+  padding: 0.5vw;
+  letter-spacing: 0.2vw;
+  -webkit-app-region:no-drag;
+
+}#modal-clave-secreta button:hover{
+  transition: 0.1s;
+  transform: scale(1.05);
+}
+
+#modal-seguridad{
+  text-align: center;
+  justify-content: center;
+}
+
+#clave-secreta{
+  padding: 0.5vw;
+  border-radius: 10px;
+  width: 300px;
+  border: none;
+  padding: 0.5vw;
+  -webkit-app-region:no-drag;
+}
+
+/*----------------------------------------------------*/
+/*Modal-clave secreta importar exportar*/
+
+
+/*Modal confirmacion, borrar*/
+#modal-confirmacion-borrar {
+  -webkit-app-region:no-drag;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modal-confirmacion-borrar .modal-content {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  -webkit-app-region:no-drag;
+}
+
+#modal-confirmacion-borrar input{
+  -webkit-app-region:no-drag;
+  width: 200px;
+  color: #0d1117;
+  letter-spacing: 0.2vw;
+}
+
+#modal-confirmacion-borrar .modal-content h2{
+  color: 4ea524;
+}
+
+
+#modal-confirmacion-borrar svg{
+  width: 100px;
+  fill: #4ea524;
+}
+
+/*Modal confirmacion, borrar*/
+
+
+
+/* <!--PRUEBA-------------------------------------------------------------------------------> */
+
+/* Contador Flotante */
+#floatingCounter {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #4ea524;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 50;
+  box-shadow: #0d1117 4px 4px 0px;
+  width: 175px;
+  font-weight: 600;
+  user-select: none;
+}
+
+#grafico-equipos {
+  max-height: 500px;
+  margin-top: 20px;
+}
+.div-reporte{
+  border: #4ea524 2px solid;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#reporte p{
+  text-transform: uppercase;
+  letter-spacing: 2%;
+  color: #4ea524;
+}
+
+#timeRemaining{
+  font-weight: 500;
+}
+
+#moda-content-t{
+  width: 500px;
+  height: 210px;
+}
+
+#welcomeModal{
+text-align: center;
+font-size: 2.2ch;
+justify-content: center;
+}
+
+#welcomeModal h2{
+  color: #4ea524;
+}
+
+#endModal h2, #endModal p{
+  color: #4ea524;
+}
+
+
+#welcomeModal button{
+  color:#0d1117;
+  padding: 1vw;
+  background-color: #4ea524;
+  width: 40ch;
+}
+
+/* <!--PRUEBA-------------------------------------------------------------------------------> */
